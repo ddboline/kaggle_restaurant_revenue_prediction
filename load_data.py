@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import gzip
 
 import matplotlib
 matplotlib.use('Agg')
@@ -56,7 +57,11 @@ def get_plots(in_df):
     create_html_page_of_plots(list_of_plots)
 
 def load_data(do_drop_list=False):
+    train_df = pd.read_csv('train.csv.gz', compression='gzip')
+    test_df = pd.read_csv('test.csv.gz', compression='gzip')
     
+    print train_df.columns
+    print train_df['revenue'].describe()
     
     xtrain, ytrain, xtest, ytest = 4*[0]
     return xtrain, ytrain, xtest, ytest
