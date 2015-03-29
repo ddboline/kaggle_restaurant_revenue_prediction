@@ -59,10 +59,10 @@ def get_plots(in_df):
 def load_data(do_drop_list=False):
     train_df = pd.read_csv('train.csv.gz', compression='gzip')
     test_df = pd.read_csv('test.csv.gz', compression='gzip')
-    
+
     print train_df.columns
     print train_df['revenue'].describe()
-    
+
     xtrain, ytrain, xtest, ytest = 4*[0]
     return xtrain, ytrain, xtest, ytest
 
