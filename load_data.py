@@ -29,6 +29,9 @@ def clean_data(indf):
     ### can't predict something which doesn't exist in training set...
     indf = indf.drop(labels=['City', 'Type', 'Type1', 'Type2', 
                              'Type3'], axis=1)
+    
+    if 'revenue' in indf.columns:
+        indf = indf[indf['revenue'] < 1.2e7]
 
     return indf
 
